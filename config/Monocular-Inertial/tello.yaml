@@ -7,21 +7,20 @@ File.version: "1.0"
 
 Camera.type: "PinHole"
 
-# Camera calibration and distortion parameters (OpenCV) 
-Camera1.fx: 848.529
-Camera1.fy: 848.141
-Camera1.cx: 479.882
-Camera1.cy: 351.557
+# Right Camera calibration and distortion parameters (OpenCV)
+Camera1.fx: 907.54075982
+Camera1.fy: 909.02932191
+Camera1.cx: 494.14941499
+Camera1.cy: 347.51006866
 
-Camera1.k1: -0.05096
-Camera1.k2: 0.04872
-Camera1.p1: 0.00190
-Camera1.p2: 0.00077
-
+# distortion parameters
+Camera1.k1: -0.035351561546680295
+Camera1.k2: 0.06855868163937204
+Camera1.p1: 0.00017580215122216657
+Camera1.p2: -0.0011034786735252325
 # Camera resolution
 Camera.width: 960
 Camera.height: 720
-
 
 # Camera frames per second 
 Camera.fps: 30
@@ -29,27 +28,25 @@ Camera.fps: 30
 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
 Camera.RGB: 1
 
-# Transformation from camera to body-frame (imu)
+# Transformation from body-frame (imu) to left camera
 IMU.T_b_c1: !!opencv-matrix
    rows: 4
    cols: 4
    dt: f
-   data: [0.015380685880954759, 0.9987802837231801, -0.04691885918983518, 6.248010695786327e-05,
-         -0.17925382959809705, 0.0489185228532264, 0.9825858958362241, -2.1121186496078244e-05,
-         0.9836826211112241, -0.006702459824761642, 0.17978759121821974, 0.0001265757067624446,
+   data: [-0.008428004549906443, 0.9999246925220469, -0.008920651545589686, 0.14322197933174227,
+         -0.127763640656199, 0.0077710647196528315, 0.9917741994422913, -0.031356867061214454,
+         0.991768834389134, 0.009498412383869281, 0.12768852452983215, -0.14261984423044832,
          0.0, 0.0, 0.0, 1.0]
 
-# IMU noise
-IMU.NoiseGyro: 0.0073061
-IMU.NoiseAcc: 0.007832
-IMU.GyroWalk: 0.0002045
-IMU.AccWalk: 0.0005368
-IMU.Frequency: 19.5
-
+# IMU noise (Use those from VINS-mono)
+IMU.NoiseGyro: 0.0007564511285512534 
+IMU.NoiseAcc: 0.0007303173745442184
+IMU.GyroWalk: 0.000237802699990015 
+IMU.AccWalk: 0.0003870046957475989 
+IMU.Frequency: 50.0
 #--------------------------------------------------------------------------------------------
 # ORB Parameters
 #--------------------------------------------------------------------------------------------
-
 # ORB Extractor: Number of features per image
 ORBextractor.nFeatures: 1000
 
@@ -63,7 +60,7 @@ ORBextractor.nLevels: 8
 # Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
 # Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
 # You can lower these values if your images have low contrast			
-ORBextractor.iniThFAST: 17
+ORBextractor.iniThFAST: 20
 ORBextractor.minThFAST: 7
 
 #--------------------------------------------------------------------------------------------
